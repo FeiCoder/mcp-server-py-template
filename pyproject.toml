@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-server-py"
+version = "0.1.0"
+description = "A Python MCP server that provides current time functionality over HTTP"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "requests",
+]
+
+[project.scripts]
+mcp-server = "mcp_server.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_server"]
