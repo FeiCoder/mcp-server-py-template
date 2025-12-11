@@ -4,7 +4,7 @@
 
 ## 功能
 
-- 通过 HTTP 实现 MCP 协议
+- 通过 HTTP 或 Stdio 实现 MCP 协议
 - 提供获取当前日期和时间的工具
 
 ## 安装
@@ -24,14 +24,21 @@ uv sync
 运行服务器：
 
 ```bash
+# HTTP 模式（默认）
 uv run mcp-server
+
+# 或指定 HTTP
+uv run mcp-server --transport http
+
+# Stdio 模式
+uv run mcp-server --transport stdio
 ```
 
-服务器将在 `http://0.0.0.0:8000` 上启动。
+服务器将在 `http://0.0.0.0:8044` 上启动（HTTP 模式）。
 
 ## MCP 协议
 
-此服务器实现 MCP 协议用于工具调用。它支持：
+此服务器实现 MCP 协议，支持 HTTP 和 Stdio 传输方式。它支持：
 
 - `initialize`：初始化连接
 - `tools/list`：列出可用工具
